@@ -27,6 +27,13 @@ class MainActivity : AppCompatActivity() {
         btCompleteName.setOnClickListener {
             dcName = Names(firstName.text.toString(), middleName.text.toString(), lastName.text.toString())
             nameStringDisplay = "${dcName.firstName} ${dcName.middleName} ${dcName.lastName}"
+            intentFunction()
         }
+    }
+
+    private fun intentFunction() {
+        val intent = Intent(this, MainActivity2::class.java)
+        intent.putExtra("myName", nameStringDisplay)
+        startActivity(intent)
     }
 }
